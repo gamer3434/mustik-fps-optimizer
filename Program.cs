@@ -5,6 +5,26 @@ namespace AntigravityFPSOptimizer
 {
     public static class Program
     {
+        [System.Runtime.InteropServices.DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool SetConsoleCtrlHandler(ConsoleCtrlDelegate HandlerRoutine, bool Add);
+
+        private delegate bool ConsoleCtrlDelegate(int CtrlType);
+
+        private static ConsoleCtrlDelegate? _consoleCtrlHandler;
+
+        private static bool ConsoleCtrlCheck(int ctrlType)
+        {
+            // CTRL_CLOSE_EVENT = 2 represents clicking the close ('X') button on the console window
+            if (ctrlType == 2)
+            {
+                if (IsBgRamCleanerEnabled())
+                {
+                    StartBackgroundRamCleaner();
+                }
+            }
+            return false;
+        }
+
         [STAThread]
         public static void Main(string[] args)
         {
@@ -34,6 +54,10 @@ namespace AntigravityFPSOptimizer
         private static void RunCommandLineInterface()
         {
             StopBackgroundRamCleaner();
+
+            // Set up Console Control Handler to keep cleaning RAM even if CMD window is closed via the X button
+            _consoleCtrlHandler = new ConsoleCtrlDelegate(ConsoleCtrlCheck);
+            SetConsoleCtrlHandler(_consoleCtrlHandler, true);
 
             Console.Title = "Kernel FPS Artırma - Mustik Dev [CMD MODU]";
             Console.Clear();
