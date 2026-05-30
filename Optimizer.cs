@@ -357,17 +357,17 @@ namespace AntigravityFPSOptimizer
                             {
                                 if (interfaceKey != null)
                                 {
-                                    if (ActiveProfile == OptimizationProfile.Story)
-                                    {
-                                        interfaceKey.DeleteValue("TcpAckFrequency", false);
-                                        interfaceKey.DeleteValue("TCPNoDelay", false);
-                                        interfaceKey.DeleteValue("TcpDelAckTicks", false);
-                                    }
-                                    else
+                                    if (ActiveProfile == OptimizationProfile.Competitive)
                                     {
                                         interfaceKey.SetValue("TcpAckFrequency", 1, RegistryValueKind.DWord);
                                         interfaceKey.SetValue("TCPNoDelay", 1, RegistryValueKind.DWord);
                                         interfaceKey.SetValue("TcpDelAckTicks", 0, RegistryValueKind.DWord);
+                                    }
+                                    else
+                                    {
+                                        interfaceKey.DeleteValue("TcpAckFrequency", false);
+                                        interfaceKey.DeleteValue("TCPNoDelay", false);
+                                        interfaceKey.DeleteValue("TcpDelAckTicks", false);
                                     }
                                 }
                             }
