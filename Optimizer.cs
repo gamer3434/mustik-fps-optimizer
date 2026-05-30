@@ -883,7 +883,7 @@ namespace AntigravityFPSOptimizer
                     if (proc.Id == Process.GetCurrentProcess().Id || proc.Id == 0 || proc.Id == 4)
                         continue;
 
-                    // Skip Vanguard, other anti-cheats, development tools, and main social/browser apps to prevent UI/chat stutters
+                    // Skip Vanguard, other anti-cheats, development tools, main social/browser apps, and communication/streaming tools to prevent UI/chat/stream stutters
                     string procNameLower = proc.ProcessName.ToLower();
                     if (procNameLower.Contains("vanguard") || 
                         procNameLower.Contains("vgc") || 
@@ -900,7 +900,16 @@ namespace AntigravityFPSOptimizer
                         procNameLower.Contains("chrome") ||
                         procNameLower.Contains("msedge") ||
                         procNameLower.Contains("opera") ||
-                        procNameLower.Contains("spotify"))
+                        procNameLower.Contains("spotify") ||
+                        procNameLower.Contains("whatsapp") ||
+                        procNameLower.Contains("telegram") ||
+                        procNameLower.Contains("teams") ||
+                        procNameLower.Contains("zoom") ||
+                        procNameLower.Contains("skype") ||
+                        procNameLower.Contains("obs") ||
+                        procNameLower.Contains("epicgames") ||
+                        procNameLower.Contains("origin") ||
+                        procNameLower.Contains("uplay"))
                     {
                         continue;
                     }
