@@ -883,7 +883,7 @@ namespace AntigravityFPSOptimizer
                     if (proc.Id == Process.GetCurrentProcess().Id || proc.Id == 0 || proc.Id == 4)
                         continue;
 
-                    // Skip Vanguard, other anti-cheats, and Antigravity development tools to prevent IDE/Agent crashes
+                    // Skip Vanguard, other anti-cheats, development tools, and main social/browser apps to prevent UI/chat stutters
                     string procNameLower = proc.ProcessName.ToLower();
                     if (procNameLower.Contains("vanguard") || 
                         procNameLower.Contains("vgc") || 
@@ -894,7 +894,13 @@ namespace AntigravityFPSOptimizer
                         procNameLower.Contains("antigravity") ||
                         procNameLower.Contains("gemini") ||
                         procNameLower.Contains("node") ||
-                        procNameLower.Contains("powershell"))
+                        procNameLower.Contains("powershell") ||
+                        procNameLower.Contains("steam") ||
+                        procNameLower.Contains("discord") ||
+                        procNameLower.Contains("chrome") ||
+                        procNameLower.Contains("msedge") ||
+                        procNameLower.Contains("opera") ||
+                        procNameLower.Contains("spotify"))
                     {
                         continue;
                     }
