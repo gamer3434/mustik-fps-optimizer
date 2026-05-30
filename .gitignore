@@ -1,0 +1,25 @@
+# Build Folders
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Cache & Temp Files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE Configs
+.idea/
+.vscode/
+
+# Certs & Private Keys (safety first!)
+*.cer
+*.pfx
+*.snk
+*.pfx.sig
+*.cer.sig
+
+# System Files
+Thumbs.db
+Desktop.ini

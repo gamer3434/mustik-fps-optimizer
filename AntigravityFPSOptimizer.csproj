@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app_icon.ico</ApplicationIcon>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesInSingleFile>true</IncludeNativeLibrariesInSingleFile>
+    <SelfContained>false</SelfContained>
+    <AssemblyTitle>Kernel FPS Artırma - Mustik Dev</AssemblyTitle>
+    <Product>Kernel FPS Artırma</Product>
+    <Description>Kernel ve Sistem Optimizasyon Programı</Description>
+    <Company>Mustik Dev</Company>
+    <StartupObject>AntigravityFPSOptimizer.Program</StartupObject>
+  </PropertyGroup>
+
+
+
+</Project>
