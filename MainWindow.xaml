@@ -526,10 +526,18 @@
                                         <TextBlock Text="Windows'un arka planda önbelleğe alıp RAM'i doldurduğu Standby Listeyi temizler. Oyuna girmeden önce tıklandığında anlık kekelemeleri (stutter) önler." FontSize="11" Foreground="#88FFFFFF" TextWrapping="Wrap" Height="65"/>
                                         <TextBlock x:Name="RamCleanStatus" Text="Temizleme yapılmadı." FontSize="11" Foreground="#FFAAAAAA" Margin="0,10,0,10"/>
                                         <Button x:Name="CleanRamButton" Style="{StaticResource ActionButtonStyle}" Content="RAM Önbelleğini Temizle" Click="CleanRamButton_Click"/>
-                                        <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                                        <Border Background="#15FFFFFF" Height="1" Margin="0,15,0,15"/>
+                                        <TextBlock Text="⚙️ ARKA PLAN OTO TEMİZLİK BÖLMESİ" FontSize="11" FontWeight="Bold" Foreground="#00FFCC" Margin="0,0,0,8"/>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
                                             <CheckBox x:Name="BgRamCleanerToggle" Style="{StaticResource ModernToggleStyle}" Checked="BgRamCleanerToggle_Checked" Unchecked="BgRamCleanerToggle_Unchecked" VerticalAlignment="Center"/>
                                             <TextBlock Text="Kapanınca Arka Planda RAM Temizlemeye Devam Et" FontSize="11" Foreground="#CCFFFFFF" VerticalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" Width="220"/>
                                         </StackPanel>
+                                        <Border Background="#20FFCC00" BorderBrush="#35FFCC00" BorderThickness="1" CornerRadius="6" Padding="10">
+                                            <StackPanel>
+                                                <TextBlock Text="⚠️ UYARI (Sorunları Sıfıra İndirme Kılavuzu)" FontSize="9" FontWeight="Bold" Foreground="Yellow" Margin="0,0,0,4"/>
+                                                <TextBlock Text="Arka plan temizliği her 30 saniyede bir otomatik çalışır. Bazı oyunlarda/sistemlerde anlık milisaniyelik FPS droplarına yol açabilir. Oyun içi donma veya drop yaşarsanız sorunları tamamen gidermek için bu seçeneği KAPATIN (İşaretsiz yapın)." FontSize="9" Foreground="#DDFFFFFF" TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Border>
                                     </StackPanel>
                                 </Border>
 

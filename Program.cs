@@ -446,6 +446,10 @@ namespace AntigravityFPSOptimizer
                 _isContinuousRamCleaningActive = true;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n[✔] Sürekli RAM temizleyici arka planda başlatıldı! (Her 15 saniyede bir otomatik temizler)");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("⚠️ UYARI: Arka planda otomatik bellek temizliği bazı sistemlerde anlık drop veya");
+                Console.WriteLine("          stutter (kekeleme) sorunlarına yol açabilir. Herhangi bir performans sorunu");
+                Console.WriteLine("          yaşarsanız bu ayarı tekrar kapatıp 'DURDUR' durumuna getirmeniz tavsiye edilir.");
                 Console.ResetColor();
                 System.Threading.Tasks.Task.Run(RunContinuousRamCleaner);
             }
