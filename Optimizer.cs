@@ -883,14 +883,18 @@ namespace AntigravityFPSOptimizer
                     if (proc.Id == Process.GetCurrentProcess().Id || proc.Id == 0 || proc.Id == 4)
                         continue;
 
-                    // Skip Vanguard or other sensitive security/anti-cheat processes
+                    // Skip Vanguard, other anti-cheats, and Antigravity development tools to prevent IDE/Agent crashes
                     string procNameLower = proc.ProcessName.ToLower();
                     if (procNameLower.Contains("vanguard") || 
                         procNameLower.Contains("vgc") || 
                         procNameLower.Contains("vgk") || 
                         procNameLower.Contains("easyanticheat") || 
                         procNameLower.Contains("battleye") ||
-                        procNameLower.Contains("faceit"))
+                        procNameLower.Contains("faceit") ||
+                        procNameLower.Contains("antigravity") ||
+                        procNameLower.Contains("gemini") ||
+                        procNameLower.Contains("node") ||
+                        procNameLower.Contains("powershell"))
                     {
                         continue;
                     }
