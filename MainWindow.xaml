@@ -304,6 +304,7 @@
                             </StackPanel>
                             <TextBlock Text="Durum: Koruma Devrede" FontSize="11" Foreground="#00FFCC" Margin="0,0,0,2"/>
                             <TextBlock Text="Anti-Cheat Uyumlu: %100" FontSize="11" Foreground="#FFAAAAAA"/>
+                            <TextBlock Text="İletişim: guns.lol/mustik34" FontSize="10" Foreground="#00FFCC" Cursor="Hand" MouseDown="DiscordLink_MouseDown" TextDecorations="Underline" Margin="0,5,0,0"/>
                         </StackPanel>
                     </Grid>
                 </Border>

@@ -709,6 +709,15 @@ namespace AntigravityFPSOptimizer
                 });
             });
         }
+
+        private void DiscordLink_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://guns.lol/mustik34") { UseShellExecute = true });
+            }
+            catch { }
+        }
     }
 }
 

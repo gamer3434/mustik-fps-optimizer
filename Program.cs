@@ -116,6 +116,7 @@ namespace AntigravityFPSOptimizer
             Console.WriteLine(@" |_|\_\___|_|  |_| |_|\___|_| |_|    |_|    |_____/              ");
             Console.WriteLine(@"                                                                  ");
             Console.WriteLine(@"      [  MUSTIK DEV  -  KERNEL LEVEL FPS OPTIMIZER CLI v2  ]       ");
+            Console.WriteLine(@"      [  Discord & İletişim: guns.lol/mustik34              ]       ");
             
             string activeKey = LicensingManager.GetActiveKey();
             Console.ForegroundColor = ConsoleColor.Green;
