@@ -690,12 +690,13 @@
                             <!-- License Key Input Field -->
                             <StackPanel Grid.Row="2" Margin="0,0,0,20">
                                 <TextBlock Text="🔑 LİSANS ANAHTARI" FontSize="11" Foreground="#FFAAAAAA" FontWeight="Bold" Margin="0,0,0,8"/>
-                                <Border Background="#15FFFFFF" BorderBrush="#25FFFFFF" BorderThickness="1" CornerRadius="6" Height="42" Padding="8,2">
+                                <Border Background="#15FFFFFF" BorderBrush="#25FFFFFF" BorderThickness="1" CornerRadius="6" Height="42" Padding="8,2" Margin="0,0,0,10">
                                     <Grid>
                                         <TextBox x:Name="LicenseInputBox" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="14" VerticalAlignment="Center" CaretBrush="White" GotFocus="LicenseInputBox_GotFocus" LostFocus="LicenseInputBox_LostFocus"/>
-                                        <TextBlock x:Name="LicenseWatermark" Text="Örn: MUSTIK-VIP-5090-RTX" Foreground="#44FFFFFF" FontSize="14" VerticalAlignment="Center" IsHitTestVisible="False" Margin="4,0,0,0"/>
+                                        <TextBlock x:Name="LicenseWatermark" Text="Lisans anahtarını buraya girin..." Foreground="#44FFFFFF" FontSize="14" VerticalAlignment="Center" IsHitTestVisible="False" Margin="4,0,0,0"/>
                                     </Grid>
                                 </Border>
+                                <TextBlock Text="Lisans Almak veya Destek için Discord: guns.lol/mustik34" Foreground="#00FFCC" FontSize="11" HorizontalAlignment="Center" Cursor="Hand" MouseDown="DiscordLink_MouseDown" TextDecorations="Underline"/>
                             </StackPanel>
 
                             <!-- Activation Status Label -->

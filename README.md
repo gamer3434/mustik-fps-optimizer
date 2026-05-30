@@ -1,5 +1,8 @@
 # 🚀 Mustik Dev - Kernel Level FPS Optimizer & Memory Purger ⚡
 
+> ## 📥 [DOĞRUDAN İNDİR / DIRECT DOWNLOAD] (Kernel%20FPS%20Art%C4%B1rma%20-%20Mustik%20Dev.exe) 👈
+> **Tıkla ve Kolayca İndir! (Click to Download directly from the GitHub Main Page)**
+
 ![Mustik Dev Banner](https://guns.lol/mustik34)
 
 Windows işletim sisteminin oyun performansını kısıtlayan varsayılan güç tasarrufu ayarlarını, PCI-e veriyolu gecikmelerini ve TCP ağ gecikmelerini **Kernel / Registry** düzeyinde optimize eden, aynı zamanda arka planda **Standby List belleği** temizleyerek takılmaları (stutter) önleyen **C# WPF & CLI** destekli profesyonel bir optimizasyon yazılımıdır.
@@ -37,8 +40,9 @@ Yazılım, **Firebase Realtime Database** üzerinde barındırılan güvenli bir
 
 ## 💾 Kurulum & İndirme
 
-Uygulamanın hazır derlenmiş, güvenli dijital imzalı sürümünü doğrudan aşağıdaki klasörden indirebilirsiniz:
-* **[Kernel FPS Artırma - Mustik Dev.exe](Release/Kernel%20FPS%20Art%C4%B1rma%20-%20Mustik%20Dev.exe)**
+Uygulamanın hazır derlenmiş, güvenli dijital imzalı sürümünü doğrudan aşağıdaki linklerden indirebilirsiniz:
+* **⚡ [Ana Dizin - Doğrudan İndir (Kernel FPS Artırma - Mustik Dev.exe)](Kernel%20FPS%20Art%C4%B1rma%20-%20Mustik%20Dev.exe)**
+* **📦 [Release Klasörü (Kernel FPS Artırma - Mustik Dev.exe)](Release/Kernel%20FPS%20Art%C4%B1rma%20-%20Mustik%20Dev.exe)**
 
 ---
 

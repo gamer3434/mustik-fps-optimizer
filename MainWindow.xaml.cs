@@ -576,7 +576,7 @@ namespace AntigravityFPSOptimizer
         private void CheckAndSetupAdminUI()
         {
             string activeKey = LicensingManager.GetActiveKey();
-            bool isAdmin = activeKey.Equals(LicensingManager.AdminMasterKey, StringComparison.OrdinalIgnoreCase);
+            bool isAdmin = LicensingManager.IsAdminKey(activeKey);
             if (isAdmin)
             {
                 AdminTabButton.Visibility = Visibility.Visible;

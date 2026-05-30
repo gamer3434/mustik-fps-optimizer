@@ -57,11 +57,8 @@ namespace AntigravityFPSOptimizer
             0x2D, 0x3B, 0x37, 0x31, 0x70, 0x3D, 0x31, 0x33, 0x71 
         };
 
-        // "MUSTIK-MASTER-DEV" encrypted with XOR 0x5E
-        private static readonly byte[] EncryptedAdminKey = new byte[] { 
-            0x13, 0x0B, 0x0D, 0x0A, 0x17, 0x15, 0x73, 0x13, 0x1F, 0x0D, 0x0A, 0x1B, 0x0C, 0x73, 0x1A, 0x1B, 
-            0x08
-        };
+        // One-way cryptographically secure SHA-256 hash of the Admin Master Key ("MUSTIK-MASTER-DEV")
+        private const string AdminMasterKeyHash = "389d0adf2799804616d369f77afeb0c6433fdeaa01e5a5ce53bd9d6c4f9c525c";
 
         // "activation.lic" encrypted with XOR 0x5E
         private static readonly byte[] EncryptedLicenseCache = new byte[] { 
@@ -130,8 +127,28 @@ namespace AntigravityFPSOptimizer
         
         private static string LicenseCachePath => Path.Combine(FolderPath, D(EncryptedLicenseCache));
 
-        // The Master Developer Admin Key
-        public static string AdminMasterKey => D(EncryptedAdminKey);
+        // Checks if a given key is the Admin Master Key using SHA-256 hash comparison
+        public static bool IsAdminKey(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key)) return false;
+            try
+            {
+                using (var sha = SHA256.Create())
+                {
+                    byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(key.Trim().ToUpperInvariant()));
+                    var sb = new StringBuilder();
+                    foreach (byte b in bytes)
+                    {
+                        sb.Append(b.ToString("x2"));
+                    }
+                    return sb.ToString() == AdminMasterKeyHash;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public static void DeleteCachedLicense()
         {
@@ -327,7 +344,7 @@ namespace AntigravityFPSOptimizer
                 if (string.IsNullOrEmpty(cachedKey)) return false;
 
                 // Admin Master Key always bypasses client activation check, allowing normal execution
-                if (cachedKey.Equals(AdminMasterKey, StringComparison.OrdinalIgnoreCase))
+                if (IsAdminKey(cachedKey))
                     return true;
 
                 var checkTask = Task.Run(() => CheckOnlineActivation(cachedKey));
@@ -387,7 +404,7 @@ namespace AntigravityFPSOptimizer
             key = key.Trim();
 
             // Admin Master Key activation check
-            if (key.Equals(AdminMasterKey, StringComparison.OrdinalIgnoreCase))
+            if (IsAdminKey(key))
             {
                 File.WriteAllText(LicenseCachePath, key);
                 return ActivationResult.AdminSuccess;

@@ -12,6 +12,23 @@ namespace AntigravityFPSOptimizer
 
         private static ConsoleCtrlDelegate? _consoleCtrlHandler;
 
+        [System.Runtime.InteropServices.DllImport("kernel32.dll", SetLastError = true)]
+        private static extern IntPtr GetStdHandle(int nStdHandle);
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+
+        private const int STD_OUTPUT_HANDLE = -11;
+        private const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+
+        private static string GetClickableLink(string url, string text)
+        {
+            return $"\u001B]8;;{url}\u001B\\{text}\u001B]8;;\u001B\\";
+        }
+
         private static bool ConsoleCtrlCheck(int ctrlType)
         {
             // CTRL_CLOSE_EVENT = 2 represents clicking the close ('X') button on the console window
@@ -54,6 +71,16 @@ namespace AntigravityFPSOptimizer
         private static void RunCommandLineInterface()
         {
             StopBackgroundRamCleaner();
+
+            try
+            {
+                var handle = GetStdHandle(STD_OUTPUT_HANDLE);
+                if (GetConsoleMode(handle, out uint mode))
+                {
+                    SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+                }
+            }
+            catch { }
 
             // Set up Console Control Handler to keep cleaning RAM even if CMD window is closed via the X button
             _consoleCtrlHandler = new ConsoleCtrlDelegate(ConsoleCtrlCheck);
@@ -140,7 +167,11 @@ namespace AntigravityFPSOptimizer
             Console.WriteLine(@" |_|\_\___|_|  |_| |_|\___|_| |_|    |_|    |_____/              ");
             Console.WriteLine(@"                                                                  ");
             Console.WriteLine(@"      [  MUSTIK DEV  -  KERNEL LEVEL FPS OPTIMIZER CLI v2  ]       ");
-            Console.WriteLine(@"      [  Discord & İletişim: guns.lol/mustik34              ]       ");
+            Console.Write("      [  Discord & İletişim: ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write(GetClickableLink("https://guns.lol/mustik34", "guns.lol/mustik34"));
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("              ]       ");
             
             string activeKey = LicensingManager.GetActiveKey();
             Console.ForegroundColor = ConsoleColor.Green;
@@ -148,7 +179,7 @@ namespace AntigravityFPSOptimizer
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(@"==================================================================");
             Console.ResetColor();
-            bool isAdmin = activeKey.Equals(LicensingManager.AdminMasterKey, StringComparison.OrdinalIgnoreCase);
+            bool isAdmin = LicensingManager.IsAdminKey(activeKey);
 
             while (true)
             {
@@ -469,8 +500,10 @@ namespace AntigravityFPSOptimizer
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine(" * Bu program HWID lisanslama sistemi kullanir.");
                 Console.WriteLine(" * Gireceginiz key dogrudan bu bilgisayarin ANAKARTINA kilitlenecektir.");
-                Console.WriteLine(" * Denemek icin VIP key: MUSTIK-VIP-5090-RTX veya MUSTIK-FREE-TEST-KEY");
-                Console.ResetColor();
+                Console.Write(" * Lisans Satın Almak ve Destek için Discord: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(GetClickableLink("https://guns.lol/mustik34", "guns.lol/mustik34"));
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("------------------------------------------------------------------");
 
                 Console.ForegroundColor = ConsoleColor.White;
