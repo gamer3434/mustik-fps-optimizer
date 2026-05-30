@@ -33,7 +33,7 @@ Yazılım, **Firebase Realtime Database** üzerinde barındırılan güvenli bir
 
 * **💻 Motherboard (Anakart) Kilidi (HWID)**: Lisans anahtarları, kullanıcının anakart ve işletim sistemi kimliklerine (Motherboard Serial & MachineGuid) kalıcı olarak kilitlenir. Bir lisans anahtarı başka bir bilgisayarda kullanılamaz!
 * **👑 Geliştirici Yönetici Paneli (Admin Master Key)**:
-  * Programa size özel **`MUSTIK-MASTER-DEV`** anahtarı ile giriş yaptığınızda hem CMD hem de WPF görsel panelinde gizli **Admin Key Üretim Menüsü** açılır!
+  * Programa size özel Yönetici (Master Admin) anahtarı ile giriş yapıldığında hem CMD hem de WPF görsel panelinde gizli **Admin Key Üretim Menüsü** açılır!
   * Bu menüden dilediğiniz sürede (1 Günlük, 30 Günlük veya Sınırsız) yepyeni lisans anahtarları üretebilir ve bu anahtarları Firebase bulut veritabanına otomatik olarak yükleyebilirsiniz.
 
 ---
