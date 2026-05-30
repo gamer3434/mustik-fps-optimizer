@@ -57,7 +57,7 @@ namespace AntigravityFPSOptimizer
             0x2D, 0x3B, 0x37, 0x31, 0x70, 0x3D, 0x31, 0x33, 0x71 
         };
 
-        // One-way cryptographically secure SHA-256 hash of the Admin Master Key ("MUSTIK-MASTER-DEV")
+        // One-way cryptographically secure SHA-256 hash of the Admin Master Key
         private const string AdminMasterKeyHash = "389d0adf2799804616d369f77afeb0c6433fdeaa01e5a5ce53bd9d6c4f9c525c";
 
         // "activation.lic" encrypted with XOR 0x5E
